@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f3f1e9">
+  <meta name="description" content="Find a little room for the outdoors. Compare hourly forecasts and discover a continuous weather window for a walk or casual ride.">
+  <title>Outside — Find your weather window</title>
+  <link rel="preload" href="./fonts/newsreader.woff2" as="font" type="font/woff2" crossorigin><link rel="icon" href="./icon.svg" type="image/svg+xml"><link rel="stylesheet" href="./style.css">
+  <script type="module" src="./app.js"></script>
+</head>
+<body>
+<a class="skip" href="#planner">Skip to planner</a>
+<header class="masthead"><a class="brand" href="./" aria-label="Outside home"><svg aria-hidden="true" viewBox="0 0 32 32"><path d="M16 2v5M16 25v5M2 16h5M25 16h5M6 6l4 4M22 22l4 4M6 26l4-4M22 10l4-4"/><circle cx="16" cy="16" r="6"/></svg>outside<span class="brand-period">.</span></a><nav aria-label="Main"><a href="#planner">The planner</a><a href="#method">Why Outside?</a></nav><span class="mast-note">A little more fresh air.</span></header>
+<main>
+<section class="intro"><div><h1>Make room<br>for <em>outside.</em></h1><p>A walk before the rain. A ride when the wind drops.<br class="desktop"> Find the hours that fit your kind of day.</p></div><div class="orbit" aria-hidden="true"><div class="sun"></div><div class="orbit-line"></div><span>LESS GUESSWORK<br>MORE OPEN AIR</span><svg viewBox="0 0 60 60"><path d="M10 15h35v35M45 15L10 50"/></svg></div></section>
+<section id="planner" class="workspace" aria-labelledby="planner-title">
+<aside class="controls"><h2 id="planner-title">Your next outing</h2><p class="muted">Three days. A few good hours.</p>
+<form id="search-form"><label for="city">Where are you heading?</label><div class="search-row"><input id="city" name="city" type="search" placeholder="Search a city…" minlength="2" maxlength="80" required autocomplete="off"><button aria-label="Search places" type="submit"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="10" cy="10" r="6"/><path d="m15 15 6 6"/></svg></button></div></form>
+<div id="search-status" role="status"></div><div id="search-results" class="search-results"></div>
+<div class="place-list" id="places"></div><p class="small muted">Choose up to two places to compare. Times are local to each place.</p>
+<form id="preferences"><label for="duration">Time to spare</label><select id="duration"><option value="1">1 hour</option><option value="2" selected>2 hours</option><option value="3">3 hours</option></select>
+<div class="field-label"><label for="rain">Maximum rain chance</label><output id="rain-value" for="rain">30%</output></div><input type="range" id="rain" min="0" max="80" step="5" value="30">
+<div class="field-label"><label for="wind">Maximum wind</label><output id="wind-value" for="wind">25 km/h</output></div><input type="range" id="wind" min="5" max="50" step="5" value="25">
+<fieldset><legend>Feels-like temperature, °C</legend><div class="temp-fields"><label>Minimum<input id="minTemp" type="number" min="-30" max="50" value="8" required></label><span>to</span><label>Maximum<input id="maxTemp" type="number" min="-30" max="50" value="28" required></label></div></fieldset>
+<p class="small muted">Daytime hours: 07:00–20:00. Limits apply to every hour of your outing.</p><p id="preference-status" class="small" role="status"></p></form>
+<button class="text-button" id="sample">Explore a sample forecast <span aria-hidden="true">↗</span></button>
+</aside>
+<div class="forecast-area"><div class="forecast-heading"><h2>The forecast, made useful.</h2><button id="refresh" class="text-button">Refresh data <span aria-hidden="true">↻</span></button></div><div id="connection" role="status"></div><div id="results" aria-live="polite" aria-busy="false"><div class="welcome"><svg aria-hidden="true" viewBox="0 0 100 100"><circle cx="50" cy="50" r="24"/><path d="M50 5v12M50 83v12M5 50h12M83 50h12M18 18l9 9M73 73l9 9M18 82l9-9M73 27l9-9"/></svg><h3>Good hours are out there.</h3><p>Search for your city, or start nearby.</p><div class="starter-places"><button data-city="Bengaluru">Bengaluru</button><button data-city="London">London</button><button data-city="New York">New York</button></div><p class="small muted">Live forecasts load only when you choose a place.<br>No location permission or account needed.</p></div></div></div>
+</section>
+<section id="method" class="method"><div><h2>A forecast is a list.<br><em>A window is a plan.</em></h2><p>Outside exists for the small decision between checking the weather and actually getting out the door. Daily highs and a rain icon hide the useful hours in between.</p><p>This is a noncommercial experiment, built around one transparent rule: your whole outing should fit your limits.</p></div><div class="method-details"><details open><summary>How your window is found</summary><p>We check every possible 1–3 hour block between 07:00 and 20:00. Any hour outside your rain, wind or feels-like limits removes that block. Missing data and thunderstorm codes also remove it.</p><p>Remaining blocks are ranked by lowest peak rain chance, then lowest peak wind, then average distance from 20°C. Ties go to the earlier time. Rain chance is an hourly forecast, not the probability of staying dry for the whole outing.</p></details><details><summary>What this can—and cannot—tell you</summary><p>Forecasts come from <a href="https://open-meteo.com/" target="_blank" rel="noreferrer">Open-Meteo</a>. This is for ordinary urban outings. It does not assess route conditions, air quality, UV, lightning proximity or official warnings. Your limits are preferences, not safety thresholds. Check local warnings before leaving.</p></details><details><summary>Is the planner doing its job?</summary><p id="evaluation">The logic is checked against an independent exhaustive search. Evaluation results have not loaded.</p><p>These checks measure scheduling correctness on synthetic inputs, not real-world forecast accuracy or proven user benefit.</p></details></div></section>
+</main><footer><a class="brand small-brand" href="./">outside.</a><p>Weather data: <a href="https://open-meteo.com/">Open-Meteo</a> · <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a><br>Location data: GeoNames via Open-Meteo. Noncommercial use.</p><a href="#planner">Find your hours <span aria-hidden="true">↑</span></a></footer>
+<noscript><p class="notice">Enable JavaScript to search places and plan an outing. Weather data comes directly from Open-Meteo.</p></noscript>
+</body></html>

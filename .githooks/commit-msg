@@ -1,0 +1,2 @@
+#!/bin/sh
+node weather_project/scripts/check-message.mjs "$1"

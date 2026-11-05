@@ -1,0 +1,37 @@
+{
+  "checkedAt": "2026-11-05T05:49:37.627Z",
+  "environment": "Local development server, mobile simulated throttling, single run",
+  "scores": {
+    "performance": 99,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 100
+  },
+  "failedAudits": [
+    {
+      "id": "max-potential-fid",
+      "title": "Max Potential First Input Delay",
+      "score": 0.44
+    },
+    {
+      "id": "bf-cache",
+      "title": "Page prevented back/forward cache restoration",
+      "score": 0
+    },
+    {
+      "id": "document-latency-insight",
+      "title": "Document request latency",
+      "score": 0.5
+    },
+    {
+      "id": "network-dependency-tree-insight",
+      "title": "Network dependency tree",
+      "score": 0
+    },
+    {
+      "id": "render-blocking-insight",
+      "title": "Render-blocking requests",
+      "score": 0
+    }
+  ]
+}

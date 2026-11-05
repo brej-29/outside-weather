@@ -1,0 +1,22 @@
+{
+  "cases": 3000,
+  "seed": 3741,
+  "agreement": 3000,
+  "violations": 0,
+  "feasible": 1735,
+  "baselines": {
+    "firstDaytime": {
+      "valid": 109,
+      "optimal": 56
+    },
+    "noon": {
+      "valid": 95,
+      "optimal": 41
+    },
+    "firstHourOnly": {
+      "valid": 1284,
+      "optimal": 1284
+    }
+  },
+  "kind": "synthetic scheduling correctness, not forecast accuracy"
+}

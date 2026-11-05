@@ -1,0 +1,391 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-05T05:52:01Z",
+  "title": "Design System: Outside",
+  "extensions": {
+    "colorMeta": {
+      "paper": {
+        "role": "neutral",
+        "displayName": "Paper",
+        "tonalRamp": [
+          "oklch(15.00% 0.0108 95.16)",
+          "oklch(26.43% 0.0108 95.16)",
+          "oklch(37.86% 0.0108 95.16)",
+          "oklch(49.29% 0.0108 95.16)",
+          "oklch(60.71% 0.0108 95.16)",
+          "oklch(72.14% 0.0108 95.16)",
+          "oklch(83.57% 0.0108 95.16)",
+          "oklch(95.00% 0.0108 95.16)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Pine Ink",
+        "tonalRamp": [
+          "oklch(15.00% 0.0358 164.02)",
+          "oklch(26.43% 0.0358 164.02)",
+          "oklch(37.86% 0.0358 164.02)",
+          "oklch(49.29% 0.0358 164.02)",
+          "oklch(60.71% 0.0358 164.02)",
+          "oklch(72.14% 0.0358 164.02)",
+          "oklch(83.57% 0.0358 164.02)",
+          "oklch(95.00% 0.0358 164.02)"
+        ]
+      },
+      "forest": {
+        "role": "primary",
+        "displayName": "Forest",
+        "tonalRamp": [
+          "oklch(15.00% 0.0503 165.62)",
+          "oklch(26.43% 0.0503 165.62)",
+          "oklch(37.86% 0.0503 165.62)",
+          "oklch(49.29% 0.0503 165.62)",
+          "oklch(60.71% 0.0503 165.62)",
+          "oklch(72.14% 0.0503 165.62)",
+          "oklch(83.57% 0.0503 165.62)",
+          "oklch(95.00% 0.0503 165.62)"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Muted Pine",
+        "tonalRamp": [
+          "oklch(15.00% 0.0232 154.39)",
+          "oklch(26.43% 0.0232 154.39)",
+          "oklch(37.86% 0.0232 154.39)",
+          "oklch(49.29% 0.0232 154.39)",
+          "oklch(60.71% 0.0232 154.39)",
+          "oklch(72.14% 0.0232 154.39)",
+          "oklch(83.57% 0.0232 154.39)",
+          "oklch(95.00% 0.0232 154.39)"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Line",
+        "tonalRamp": [
+          "oklch(15.00% 0.0195 119.80)",
+          "oklch(26.43% 0.0195 119.80)",
+          "oklch(37.86% 0.0195 119.80)",
+          "oklch(49.29% 0.0195 119.80)",
+          "oklch(60.71% 0.0195 119.80)",
+          "oklch(72.14% 0.0195 119.80)",
+          "oklch(83.57% 0.0195 119.80)",
+          "oklch(95.00% 0.0195 119.80)"
+        ]
+      },
+      "gold": {
+        "role": "primary",
+        "displayName": "Sun Gold",
+        "tonalRamp": [
+          "oklch(15.00% 0.1155 90.24)",
+          "oklch(26.43% 0.1155 90.24)",
+          "oklch(37.86% 0.1155 90.24)",
+          "oklch(49.29% 0.1155 90.24)",
+          "oklch(60.71% 0.1155 90.24)",
+          "oklch(72.14% 0.1155 90.24)",
+          "oklch(83.57% 0.1155 90.24)",
+          "oklch(95.00% 0.1155 90.24)"
+        ]
+      },
+      "pale": {
+        "role": "neutral",
+        "displayName": "Pale",
+        "tonalRamp": [
+          "oklch(15.00% 0.0156 126.83)",
+          "oklch(26.43% 0.0156 126.83)",
+          "oklch(37.86% 0.0156 126.83)",
+          "oklch(49.29% 0.0156 126.83)",
+          "oklch(60.71% 0.0156 126.83)",
+          "oklch(72.14% 0.0156 126.83)",
+          "oklch(83.57% 0.0156 126.83)",
+          "oklch(95.00% 0.0156 126.83)"
+        ]
+      },
+      "white": {
+        "role": "neutral",
+        "displayName": "White",
+        "tonalRamp": [
+          "oklch(15.00% 0.0080 98.87)",
+          "oklch(26.43% 0.0080 98.87)",
+          "oklch(37.86% 0.0080 98.87)",
+          "oklch(49.29% 0.0080 98.87)",
+          "oklch(60.71% 0.0080 98.87)",
+          "oklch(72.14% 0.0080 98.87)",
+          "oklch(83.57% 0.0080 98.87)",
+          "oklch(95.00% 0.0080 98.87)"
+        ]
+      },
+      "warning": {
+        "role": "neutral",
+        "displayName": "Warning",
+        "tonalRamp": [
+          "oklch(15.00% 0.0997 39.92)",
+          "oklch(26.43% 0.0997 39.92)",
+          "oklch(37.86% 0.0997 39.92)",
+          "oklch(49.29% 0.0997 39.92)",
+          "oklch(60.71% 0.0997 39.92)",
+          "oklch(72.14% 0.0997 39.92)",
+          "oklch(83.57% 0.0997 39.92)",
+          "oklch(95.00% 0.0997 39.92)"
+        ]
+      },
+      "control-ground": {
+        "role": "neutral",
+        "displayName": "Control Ground",
+        "tonalRamp": [
+          "oklch(15.00% 0.0176 117.30)",
+          "oklch(26.43% 0.0176 117.30)",
+          "oklch(37.86% 0.0176 117.30)",
+          "oklch(49.29% 0.0176 117.30)",
+          "oklch(60.71% 0.0176 117.30)",
+          "oklch(72.14% 0.0176 117.30)",
+          "oklch(83.57% 0.0176 117.30)",
+          "oklch(95.00% 0.0176 117.30)"
+        ]
+      },
+      "field-line": {
+        "role": "neutral",
+        "displayName": "Field Line",
+        "tonalRamp": [
+          "oklch(15.00% 0.0319 134.47)",
+          "oklch(26.43% 0.0319 134.47)",
+          "oklch(37.86% 0.0319 134.47)",
+          "oklch(49.29% 0.0319 134.47)",
+          "oklch(60.71% 0.0319 134.47)",
+          "oklch(72.14% 0.0319 134.47)",
+          "oklch(83.57% 0.0319 134.47)",
+          "oklch(95.00% 0.0319 134.47)"
+        ]
+      },
+      "focus": {
+        "role": "neutral",
+        "displayName": "Focus Rust",
+        "tonalRamp": [
+          "oklch(15.00% 0.1325 42.10)",
+          "oklch(26.43% 0.1325 42.10)",
+          "oklch(37.86% 0.1325 42.10)",
+          "oklch(49.29% 0.1325 42.10)",
+          "oklch(60.71% 0.1325 42.10)",
+          "oklch(72.14% 0.1325 42.10)",
+          "oklch(83.57% 0.1325 42.10)",
+          "oklch(95.00% 0.1325 42.10)"
+        ]
+      },
+      "notice-ground": {
+        "role": "neutral",
+        "displayName": "Notice Ground",
+        "tonalRamp": [
+          "oklch(15.00% 0.0335 77.59)",
+          "oklch(26.43% 0.0335 77.59)",
+          "oklch(37.86% 0.0335 77.59)",
+          "oklch(49.29% 0.0335 77.59)",
+          "oklch(60.71% 0.0335 77.59)",
+          "oklch(72.14% 0.0335 77.59)",
+          "oklch(83.57% 0.0335 77.59)",
+          "oklch(95.00% 0.0335 77.59)"
+        ]
+      },
+      "notice-ink": {
+        "role": "neutral",
+        "displayName": "Notice Ink",
+        "tonalRamp": [
+          "oklch(15.00% 0.0736 52.03)",
+          "oklch(26.43% 0.0736 52.03)",
+          "oklch(37.86% 0.0736 52.03)",
+          "oklch(49.29% 0.0736 52.03)",
+          "oklch(60.71% 0.0736 52.03)",
+          "oklch(72.14% 0.0736 52.03)",
+          "oklch(83.57% 0.0736 52.03)",
+          "oklch(95.00% 0.0736 52.03)"
+        ]
+      },
+      "hour-within": {
+        "role": "neutral",
+        "displayName": "Hour Within",
+        "tonalRamp": [
+          "oklch(15.00% 0.0660 127.39)",
+          "oklch(26.43% 0.0660 127.39)",
+          "oklch(37.86% 0.0660 127.39)",
+          "oklch(49.29% 0.0660 127.39)",
+          "oklch(60.71% 0.0660 127.39)",
+          "oklch(72.14% 0.0660 127.39)",
+          "oklch(83.57% 0.0660 127.39)",
+          "oklch(95.00% 0.0660 127.39)"
+        ]
+      },
+      "hour-outside": {
+        "role": "neutral",
+        "displayName": "Hour Outside",
+        "tonalRamp": [
+          "oklch(15.00% 0.0487 66.02)",
+          "oklch(26.43% 0.0487 66.02)",
+          "oklch(37.86% 0.0487 66.02)",
+          "oklch(49.29% 0.0487 66.02)",
+          "oklch(60.71% 0.0487 66.02)",
+          "oklch(72.14% 0.0487 66.02)",
+          "oklch(83.57% 0.0487 66.02)",
+          "oklch(95.00% 0.0487 66.02)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Editorial Display",
+        "purpose": "Broad introductory headline; regular self-hosted Newsreader registered as Outside."
+      },
+      "headline": {
+        "displayName": "Editorial Headline",
+        "purpose": "Explanatory section headings."
+      },
+      "title": {
+        "displayName": "Place Title",
+        "purpose": "Place names and related editorial headings."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Introductory prose; smaller related steps support explanation and data."
+      },
+      "label": {
+        "displayName": "Control Label",
+        "purpose": "Compact field labels and measurement context."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "ease",
+        "value": "cubic-bezier(.16,1,.3,1)",
+        "purpose": "Recommendation reveal and button state transitions."
+      },
+      {
+        "name": "button-transition",
+        "value": "background .2s var(--ease), color .2s var(--ease)",
+        "purpose": "Restrained action feedback."
+      },
+      {
+        "name": "recommendation-reveal",
+        "value": "450ms; clip-path inset(0 0 15% 0) to inset(0); opacity .7 to 1",
+        "purpose": "Introduce a recommendation from an already-visible state."
+      },
+      {
+        "name": "loading-pulse",
+        "value": "1.5s ease-in-out infinite; opacity .45 at 50%",
+        "purpose": "Loading placeholder feedback."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "animation:none; transition:none; scroll-behavior:auto",
+        "purpose": "Honor reduced-motion preferences."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "phone",
+        "value": "700px"
+      },
+      {
+        "name": "intermediate",
+        "value": "1000px"
+      },
+      {
+        "name": "display-cap",
+        "value": "1441px"
+      }
+    ],
+    "focus": {
+      "value": "3px solid #a64a22",
+      "offset": "4px",
+      "purpose": "Shared visible keyboard focus."
+    }
+  },
+  "components": [
+    {
+      "name": "Text Action",
+      "kind": "button",
+      "refersTo": "text-button",
+      "description": "Underlined secondary action with rust hover and visible focus.",
+      "html": "<button class=\"ds-text\">Explore a sample forecast <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\"><path d=\"M6 18 18 6M6 6h12v12\"/></svg></button>",
+      "css": ".ds-text{border:0;background:transparent;padding:8px 0;color:var(--ink,#263e33);font:12px Arial,Helvetica,sans-serif;text-decoration:underline;text-underline-offset:4px;cursor:pointer;transition:background .2s var(--ease,cubic-bezier(.16,1,.3,1)),color .2s var(--ease,cubic-bezier(.16,1,.3,1))}.ds-text:hover{color:#964520}.ds-text svg{width:16px;height:16px;margin-left:6px;fill:none;stroke:currentColor;stroke-width:1.5;vertical-align:middle}.ds-text:focus-visible,.ds-day:focus-visible,.ds-input:focus-visible,.ds-nav a:focus-visible,.ds-chip button:focus-visible{outline:3px solid var(--focus,#a64a22);outline-offset:4px}"
+    },
+    {
+      "name": "Day Control",
+      "kind": "button",
+      "refersTo": "day-selected",
+      "description": "Pressed forecast-day control with a pale selected surface.",
+      "html": "<button class=\"ds-day\" aria-pressed=\"true\">Thu, Nov 5</button><button class=\"ds-day\" aria-pressed=\"false\">Fri, Nov 6</button>",
+      "css": ".ds-day{border:0;background:transparent;color:var(--muted,#58665c);padding:10px 13px;border-radius:5px;font:12px Arial,Helvetica,sans-serif;cursor:pointer;transition:background .2s var(--ease,cubic-bezier(.16,1,.3,1))}.ds-day:hover,.ds-day[aria-pressed=true]{background:var(--pale,#e5eadf)}.ds-day[aria-pressed=true]{color:var(--ink,#263e33);font-weight:600}.ds-text:focus-visible,.ds-day:focus-visible,.ds-input:focus-visible,.ds-nav a:focus-visible,.ds-chip button:focus-visible{outline:3px solid var(--focus,#a64a22);outline-offset:4px}"
+    },
+    {
+      "name": "Search Field",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Labeled white input with a quiet green border.",
+      "html": "<label class=\"ds-label\" for=\"ds-city\">Where are you heading?</label><input class=\"ds-input\" id=\"ds-city\" type=\"search\" placeholder=\"Search a city…\">",
+      "css": ".ds-label{display:block;font:600 12px Arial,Helvetica,sans-serif;color:var(--ink,#263e33);margin-bottom:10px}.ds-input{width:100%;height:44px;padding:10px;border:1px solid #9ca995;border-radius:6px;background:var(--white,#fffef8);color:var(--ink,#263e33);font:14px Arial,Helvetica,sans-serif;caret-color:var(--forest,#264b3c)}.ds-input::placeholder{color:var(--muted,#58665c)}.ds-input:hover{border-color:var(--forest,#264b3c)}.ds-text:focus-visible,.ds-day:focus-visible,.ds-input:focus-visible,.ds-nav a:focus-visible,.ds-chip button:focus-visible{outline:3px solid var(--focus,#a64a22);outline-offset:4px}"
+    },
+    {
+      "name": "Navigation",
+      "kind": "nav",
+      "description": "Simple text navigation that stays quiet beside the brand.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Main\"><a href=\"#planner\">The planner</a><a href=\"#method\">Why Outside?</a></nav>",
+      "css": ".ds-nav{display:flex;gap:30px;font:14px Arial,Helvetica,sans-serif}.ds-nav a{color:var(--ink,#263e33);text-decoration:none;text-underline-offset:4px}.ds-nav a:hover{text-decoration:underline}.ds-text:focus-visible,.ds-day:focus-visible,.ds-input:focus-visible,.ds-nav a:focus-visible,.ds-chip button:focus-visible{outline:3px solid var(--focus,#a64a22);outline-offset:4px}"
+    },
+    {
+      "name": "Chosen Place",
+      "kind": "chip",
+      "description": "Selected place row with a thin divider and accessible remove action.",
+      "html": "<div class=\"ds-chip\"><span>Meadowfield</span><button aria-label=\"Remove Meadowfield\"><svg aria-hidden=\"true\" viewBox=\"0 0 24 24\"><path d=\"m6 6 12 12M6 18 18 6\"/></svg></button></div>",
+      "css": ".ds-chip{display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid #c2cbb7;font:600 13px Arial,Helvetica,sans-serif;color:var(--ink,#263e33)}.ds-chip button{width:32px;height:32px;border:0;background:transparent;color:inherit;cursor:pointer}.ds-chip button:hover{color:#964520}.ds-chip svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round}.ds-text:focus-visible,.ds-day:focus-visible,.ds-input:focus-visible,.ds-nav a:focus-visible,.ds-chip button:focus-visible{outline:3px solid var(--focus,#a64a22);outline-offset:4px}"
+    },
+    {
+      "name": "Recommendation",
+      "kind": "card",
+      "refersTo": "recommendation",
+      "description": "Forest recommendation surface with regular serif time and compact explanatory text.",
+      "html": "<article class=\"ds-rec\"><p class=\"ds-rec-label\">Sample window · Thu, Nov 5</p><h3>09:00 – 11:00</h3><p>2 uninterrupted hours within your limits.</p><p class=\"ds-rec-note\">Illustrative preview values.</p></article>",
+      "css": ".ds-rec{padding:24px;border-radius:var(--radius,12px);background:var(--forest,#264b3c);color:var(--white,#fffef8)}.ds-rec h3{margin:0 0 9px;font:400 36px Outside,Georgia,serif;letter-spacing:-.025em}.ds-rec p{font:13px/1.6 Arial,Helvetica,sans-serif;margin:0;color:#e2e8dc}.ds-rec .ds-rec-label{font-size:12px;color:#dee5d7;margin-bottom:18px}.ds-rec .ds-rec-note{font-size:10px;margin-top:24px}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Outdoor Journal",
+    "overview": "Outside pairs warm paper and pine ink with an open editorial rhythm. A calm serif voice gives the page personality; straightforward controls and aligned hourly values keep decisions easy to inspect. Forecast data supplies the central visual.\n\nThe system is flat and restrained. Sun-yellow geometry adds warmth without competing with the recommendation. Interface labels remain direct, and sample, loading, error and live-data states stay explicit.",
+    "keyCharacteristics": [
+      "Broad serif headings and compact sans-serif controls.",
+      "Warm neutral surfaces with pine emphasis and sparse yellow accents.",
+      "Open margins around dense, aligned hourly evidence.",
+      "Native interaction, visible focus and textual explanations alongside color."
+    ],
+    "rules": [
+      {
+        "name": "The Evidence Rule",
+        "body": "Color supports a stated result; hourly reasons and status text must carry the meaning independently.",
+        "section": "colors"
+      },
+      {
+        "name": "The Data Alignment Rule",
+        "body": "Use tabular numerals for hourly values and weather metrics. Preserve units in the surrounding label or table caption.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat Surface Rule",
+        "body": "Establish hierarchy with tone, spacing and type before adding another container.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do keep editorial headings broad and controls compact.",
+      "Do pair hourly colors with inspectable textual reasons.",
+      "Do preserve explicit sample, source, loading and error labels.",
+      "Do retain visible focus and native keyboard behavior.",
+      "Do keep units and dates close to the values they explain."
+    ],
+    "donts": [
+      "Don't replace the flat tonal hierarchy with decorative shadows.",
+      "Don't use color alone to communicate forecast checks.",
+      "Don't turn scrolling hourly evidence into page-level horizontal overflow.",
+      "Don't use text glyphs in place of the SVG icon system.",
+      "Don't synthesize an italic or bold Newsreader style from the regular face."
+    ]
+  }
+}

@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+</head>
+<body>
+<header class="app-header">
+  <h1>☁️ Brejesh's Weather App</h1>
+  <div class="social-links">
+    <a href="https://www.linkedin.com/in/brejesh-balakrishnan-7855051b9/" target="_blank" title="LinkedIn">
+      <i class="fab fa-linkedin"></i>
+    </a>
+    <a href="https://github.com/brej-29" target="_blank" title="GitHub">
+      <i class="fab fa-github"></i>
+    </a>
+  </div>
+</header>
+<form method="post">
+  {% csrf_token %}
+  <input type="text" name="city1" placeholder="Enter city 1">
+  <input type="text" name="city2" placeholder="Enter city 2">
+  <button type="submit">Compare Weather</button>
+</form>
+
+<div class="comparison-container">
+  {% if weather_data1 %}
+    <div class="city-container">
+      {% include 'weather_app/city_weather.html' with weather_data=weather_data1 daily_forecasts=daily_forecasts1 %}
+    </div>
+  {% endif %}
+  {% if weather_data2 %}
+    <div class="city-container">
+      {% include 'weather_app/city_weather.html' with weather_data=weather_data2 daily_forecasts=daily_forecasts2 %}
+    </div>
+  {% endif %}
+</div>
+
+</body>
+</html>
