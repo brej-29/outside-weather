@@ -6,7 +6,7 @@ import { CONFIG } from './config.js';
 const $ = s => document.querySelector(s);
 const esc = v => String(v).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 let places = [], data = new Map(), selectedDays = new Map(), p = { ...DEFAULTS }, searchController, generation = 0;
-const hour = n => `${String(n).padStart(2, '0')}:00`;
+const hour = n => `${n % 12 || 12}${n >= 12 ? 'pm' : 'am'}`;
 const dayLabel = day => new Intl.DateTimeFormat('en', { weekday: 'short', month: 'short', day: 'numeric', timeZone: 'UTC' }).format(new Date(day + 'T12:00:00Z'));
 function prefs() {
   const next = { ...p };
@@ -16,10 +16,12 @@ function prefs() {
   $('#preference-status').textContent = '';
   p = next;
   $('#rain-value').textContent = p.rain + '%'; $('#wind-value').textContent = p.wind + ' km/h';
+  $('#limits-summary').textContent = `Rain up to ${p.rain}% · Wind up to ${p.wind} km/h · ${p.minTemp}–${p.maxTemp}°C`;
   try { localStorage.setItem('outside-preferences', JSON.stringify(p)); } catch { /* Preferences are optional. */ }
   render();
 }
 $('#preferences').addEventListener('input', prefs);
+$('#duration').addEventListener('change', prefs);
 $('#preferences').addEventListener('submit', e => { e.preventDefault(); prefs(); $('#preferences').reportValidity(); });
 try { const saved = JSON.parse(localStorage.getItem('outside-preferences')); if (saved) for (const k of ['duration', 'rain', 'wind', 'minTemp', 'maxTemp']) if (Number.isFinite(saved[k])) $('#' + k).value = saved[k]; } catch { /* Use defaults. */ }
 prefs();
@@ -41,6 +43,8 @@ $('#search-form').addEventListener('submit', e => { e.preventDefault(); search($
 document.querySelectorAll('[data-city]').forEach(b => b.addEventListener('click', () => { $('#city').value = b.dataset.city; search(b.dataset.city); $('#city').focus(); }));
 function chips() {
   $('#places').replaceChildren();
+  $('#compare-hint').hidden = places.length !== 1;
+  $('#city').placeholder = places.length ? 'Add another city to compare' : 'Enter a city, e.g. Bengaluru';
   places.forEach(place => {
     const div = document.createElement('div'); div.className = 'place-chip';
     const span = document.createElement('span'); span.textContent = place.name; div.append(span);
@@ -54,6 +58,7 @@ async function addPlace(place) {
   if (places.length === 2) { $('#search-status').textContent = 'Remove a place to add another. You can compare two at a time.'; return; }
   places.push({ ...place, id }); $('#search-results').replaceChildren(); $('#search-status').textContent = ''; $('#city').value = '';
   chips(); await loadPlace(places.at(-1));
+  $('.forecast-area').scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth', block: 'start' });
 }
 async function loadPlace(place) {
   const token = ++generation;
@@ -69,7 +74,8 @@ async function loadPlace(place) {
   } finally { clearTimeout(slow); render(); }
 }
 $('#refresh').addEventListener('click', () => { places.forEach(place => { if (place.id !== 'sample') loadPlace(place); }); });
-$('#sample').addEventListener('click', () => {
+document.addEventListener('click', e => {
+  if (!e.target.closest('#sample')) return;
   places = [{ name: 'Meadowfield', region: 'Illustrative location', id: 'sample' }]; data.clear(); data.set('sample', sampleForecast()); chips(); render();
 });
 
@@ -93,14 +99,14 @@ function render() {
     if (d.error) return `<article class="place-result" data-result-place="${esc(place.id)}">${head}<div class="notice" role="alert">${esc(d.error)} No recommendation is available.<br><button class="text-button" data-retry="${esc(place.id)}">Retry forecast</button></div></article>`;
     const stale = Date.now() - d.at > CONFIG.maxAgeMs;
     const windows = stale ? [] : rankWindows(d.hours.filter(h => h.epoch * 1000 >= Date.now()), p);
-    const best = windows[0];
+    const overallBest = windows[0];
     const days = [...new Set(d.hours.map(h => h.day))];
     let day = selectedDays.get(place.id);
-    if (!days.includes(day)) { day = best?.day || days[0]; selectedDays.set(place.id, day); }
+    if (!days.includes(day)) { day = overallBest?.day || days[0]; selectedDays.set(place.id, day); }
+    const best = windows.find(w => w.day === day);
     const current = d.hours.filter(h => h.day === day && h.hour >= p.start && h.hour < p.end);
-    const count = windows.length;
-    const summary = best ? `<div class="recommendation"><div class="rec-label"><span>Best window · ${esc(dayLabel(best.day))}</span><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m5 12 5 5 9-10"/></svg></div><h4>${hour(best.hour)} – ${hour(best.endHour)}</h4><p>${p.duration} uninterrupted hour${p.duration > 1 ? 's' : ''} within your limits.<br>Lowest peak rain chance, then wind, then temperature comfort.</p><div class="weather-metrics"><div><strong>${Math.round(best.temp)}°C</strong><span>Average feels-like</span></div><div><strong>${best.rain}%</strong><span>Peak hourly rain chance</span></div><div><strong>${Math.round(best.wind)} km/h</strong><span>Peak wind</span></div></div></div>` : `<div class="empty"><h4>${stale ? 'Time for a fresh forecast.' : 'No window fits all your limits.'}</h4><p>${stale ? 'This forecast is over an hour old. Refresh data before choosing a window.' : 'Try a shorter outing or review your preferences. We won’t recommend a block with missing data or a thunderstorm forecast.'}</p></div>`;
-    return `<article class="place-result" data-result-place="${esc(place.id)}">${head}${d.sample ? '<p class="notice">Sample mode · Invented weather and location, for exploring the planner. Search a real city for live data. Sample times use UTC.</p>' : ''}${summary}<div class="day-switch" role="group" aria-label="Forecast day for ${esc(place.name)}">${days.map(v => `<button aria-pressed="${v === day}" data-place="${esc(place.id)}" data-day="${v}">${esc(dayLabel(v))}</button>`).join('')}</div><div class="timeline-legend"><span><i class="key"></i>Within limits</span><span><i class="key bad"></i>Outside / missing</span></div><p class="scroll-hint">Scroll the hours to see the full day.</p><div class="hour-scroll" tabindex="0" role="region" aria-label="Hourly overview, scroll for more"><div class="hour-grid">${current.map(h => `<div class="hour ${validHour(h, p) ? 'good' : ''} ${best?.hours.some(v => v.epoch === h.epoch) ? 'chosen' : ''}" title="${hour(h.hour)}: ${esc(reasons(h, p))}"><span>${String(h.hour).padStart(2, '0')}</span><i class="bar"></i><span class="hour-temp">${Number.isFinite(h.temp) ? Math.round(h.temp) + '°' : '—'}</span><span>${Number.isFinite(h.rain) ? h.rain + '%' : '—'}</span></div>`).join('')}</div></div><details class="hour-details"><summary>See hourly values & reasons · ${count} matching blocks across forecast</summary><div class="table-scroll"><table><caption class="small">${esc(dayLabel(day))} · local time · feels-like °C · wind km/h</caption><thead><tr><th scope="col">Hour</th><th scope="col">Feels</th><th scope="col">Rain</th><th scope="col">Wind</th><th scope="col">Check</th></tr></thead><tbody>${current.map(h => `<tr><td>${hour(h.hour)}</td><td>${h.temp ?? '—'}</td><td>${h.rain ?? '—'}%</td><td>${h.wind ?? '—'}</td><td>${esc(reasons(h, p))}</td></tr>`).join('')}</tbody></table></div></details></article>`;
+    const summary = best ? `<div class="recommendation"><div class="rec-label"><span>Suggested outing &middot; ${esc(dayLabel(best.day))}</span><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m5 12 5 5 9-10"/></svg></div><h4>${hour(best.hour)} – ${hour(best.endHour)}</h4><p>${p.duration} uninterrupted hour${p.duration > 1 ? 's' : ''} within your limits.<br>Every hour fits your rain, wind and temperature preferences.</p><div class="weather-metrics"><div><strong>${Math.round(best.temp)}°C</strong><span>Average feels like</span></div><div><strong>${best.rain}%</strong><span>Highest hourly rain chance</span></div><div><strong>${Math.round(best.wind)} km/h</strong><span>Strongest wind</span></div></div></div>` : `<div class="empty"><h4>${stale ? 'Time for a fresh forecast.' : 'No matching time on this day.'}</h4><p>${stale ? 'This forecast is over an hour old. Refresh data before choosing a window.' : 'Try another day, a shorter outing or adjust Weather preferences. We won’t recommend a block with missing data or a thunderstorm forecast.'}</p></div>`;
+    return `<article class="place-result" data-result-place="${esc(place.id)}">${head}${d.sample ? '<p class="notice">Sample forecast - Invented weather and place. Search a real city for live results. Sample times use UTC.</p>' : ''}${summary}<div class="day-switch" role="group" aria-label="Forecast day for ${esc(place.name)}">${days.map(v => `<button aria-pressed="${v === day}" data-place="${esc(place.id)}" data-day="${v}">${esc(dayLabel(v))}</button>`).join('')}</div><div class="timeline-legend"><span><i class="key"></i>Fits preferences</span><span><i class="key bad"></i>Outside preferences / missing</span><span><i class="key selected"></i>Suggested outing</span></div><p class="scroll-hint">Scroll the hours to see the full day.</p><div class="hour-scroll" tabindex="0" role="region" aria-label="Hourly overview, scroll for more"><div class="hour-grid">${current.map(h => `<div class="hour ${validHour(h, p) ? 'good' : ''} ${best?.hours.some(v => v.epoch === h.epoch) ? 'chosen' : ''}" title="${hour(h.hour)}: ${esc(reasons(h, p))}"><span>${String(h.hour).padStart(2, '0')}</span><i class="bar"></i><span class="hour-temp">${Number.isFinite(h.temp) ? Math.round(h.temp) + '°' : '—'}</span><span>${Number.isFinite(h.rain) ? h.rain + '%' : '—'}</span></div>`).join('')}</div></div><details class="hour-details"><summary>Hourly forecast &amp; why hours match</summary><div class="table-scroll"><table><caption class="small">${esc(dayLabel(day))} · local time · feels-like °C · wind km/h</caption><thead><tr><th scope="col">Hour</th><th scope="col">Feels</th><th scope="col">Rain</th><th scope="col">Wind</th><th scope="col">Check</th></tr></thead><tbody>${current.map(h => `<tr><td>${hour(h.hour)}</td><td>${esc(h.temp ?? '—')}</td><td>${esc(h.rain ?? '—')}%</td><td>${esc(h.wind ?? '—')}</td><td>${esc(reasons(h, p))}</td></tr>`).join('')}</tbody></table></div></details></article>`;
   }).join('');
   el.querySelectorAll('[data-result-place]').forEach(article => {
     const old = inspections.get(article.dataset.resultPlace);
@@ -115,5 +121,5 @@ function render() {
 function connection() { $('#connection').innerHTML = navigator.onLine ? '' : '<p class="notice">You’re offline. Only forecasts cached within the last 20 minutes can load. Sample mode works without weather service access.</p>'; }
 window.addEventListener('online', connection); window.addEventListener('offline', connection); connection();
 setInterval(() => { if (places.length && !document.hidden) render(); }, 60000);
-fetch('./evaluation.json').then(r => r.json()).then(e => { $('#evaluation').textContent = `On ${e.cases.toLocaleString()} deterministic synthetic cases: ${e.agreement}/${e.cases} exact matches with the exhaustive reference; ${e.violations} constraint violations. Run npm run evaluate to reproduce.`; }).catch(() => {});
+fetch('./evaluation.json').then(r => r.json()).then(e => { $('#evaluation').textContent = `On ${e.cases.toLocaleString()} deterministic synthetic cases: ${e.agreement}/${e.cases} exact matches with the exhaustive reference; ${e.violations} constraint violations. These are software checks, not a forecast accuracy score.`; }).catch(() => {});
 

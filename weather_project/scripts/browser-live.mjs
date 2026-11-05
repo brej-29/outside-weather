@@ -6,7 +6,7 @@ try{
  const errors=[];page.on('pageerror',e=>errors.push(e.message));
  await page.goto(process.env.APP_URL||'http://127.0.0.1:4174/');
  await page.getByLabel('Where are you heading?').fill('Bengaluru');
- await page.getByRole('button',{name:'Search places',exact:true}).click();
+ await page.getByRole('button',{name:'Find my window',exact:true}).click();
  await page.locator('#search-results').getByRole('button',{name:/Bengaluru/}).first().click({timeout:20000});
  await page.locator('.recommendation,.empty,.notice[role=alert]').waitFor({timeout:20000});
  if(await page.locator('.notice[role=alert]').count())throw Error(await page.locator('.notice[role=alert]').innerText());

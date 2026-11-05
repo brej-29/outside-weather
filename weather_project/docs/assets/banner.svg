@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-label="Outside. Find a little room for the outdoors.">
+<rect width="1200" height="360" rx="24" fill="#264b3c"/>
+<g fill="none" stroke="#e7c76d" stroke-width="2"><circle cx="1040" cy="116" r="40" fill="#e7c76d" stroke="none"/><path d="M1040 36V16M1040 216v-20M960 116h-20M1140 116h-20M984 60l-14-14M1110 186l-14-14M984 172l-14 14M1110 46l-14 14"/></g>
+<text x="66" y="145" font-family="Georgia,serif" font-size="100" fill="#fffef8">outside.</text>
+<text x="70" y="208" font-family="Arial,sans-serif" font-size="26" fill="#e1e8d9">Find a little room for the outdoors.</text>
+<text x="70" y="264" font-family="Arial,sans-serif" font-size="17" fill="#e1e8d9">One city. A few good hours. Every weather preference explained.</text>
+<g transform="translate(835 275)"><rect width="28" height="22" rx="4" fill="#a4b88b"/><rect x="36" width="28" height="22" rx="4" fill="#e7c76d"/><rect x="72" width="28" height="22" rx="4" fill="#e7c76d"/><rect x="108" width="28" height="22" rx="4" fill="#a4b88b"/><rect x="144" width="28" height="22" rx="4" fill="#a4b88b"/><rect x="180" width="28" height="22" rx="4" fill="#d9bda2"/><rect x="216" width="28" height="22" rx="4" fill="#d9bda2"/></g>
+</svg>

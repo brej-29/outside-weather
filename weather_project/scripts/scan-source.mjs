@@ -11,7 +11,8 @@ async function scan(path){
     }
   }
 }
-for(const path of ['web','scripts','tests','docs','.github','.githooks'])await scan(path);
+for(const path of ['web','scripts','tests','docs','../.github','../.githooks'])await scan(path);
 for(const path of ['README.md','PRODUCT.md','DESIGN.md','package.json','package-lock.json','.gitignore'])if(pattern.test(await readFile(path,'utf8'))){console.error(`${path}: prohibited text`);hits++;}
 console.log(`Source scan: ${hits} hits. Commit history and PR body require separate git scan.`);
+if(pattern.test(await readFile('../README.md','utf8'))){console.error('Root README: prohibited text');hits++;}
 if(hits)process.exitCode=1;

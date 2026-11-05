@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-05T05:52:01Z",
+  "generatedAt": "2026-11-05T06:19:37.215Z",
   "title": "Design System: Outside",
   "extensions": {
     "colorMeta": {
@@ -282,11 +282,11 @@
     "breakpoints": [
       {
         "name": "phone",
-        "value": "700px"
+        "value": "600px"
       },
       {
         "name": "intermediate",
-        "value": "1000px"
+        "value": "900px"
       },
       {
         "name": "display-cap",
