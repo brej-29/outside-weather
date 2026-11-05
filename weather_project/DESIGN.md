@@ -1,6 +1,6 @@
 ---
 name: Outside
-description: Quiet outdoor-journal typography and clear hourly weather evidence.
+description: A compact outing planner with progressive weather preferences and clear hourly evidence.
 colors:
   paper: "#f3f1e9"
   ink: "#263e33"
@@ -27,7 +27,7 @@ typography:
     letterSpacing: "-0.035em"
   headline:
     fontFamily: "Outside, Georgia, serif"
-    fontSize: "42px"
+    fontSize: "36px"
     fontWeight: 400
     lineHeight: 1.1
   title:
@@ -37,18 +37,19 @@ typography:
     letterSpacing: "-0.02em"
   body:
     fontFamily: "Arial, Helvetica, sans-serif"
-    fontSize: "17px"
+    fontSize: "16px"
     lineHeight: 1.65
   label:
     fontFamily: "Arial, Helvetica, sans-serif"
-    fontSize: "12px"
+    fontSize: "13px"
     fontWeight: 600
 rounded:
-  surface: "12px"
-  field: "6px"
-  day: "5px"
-  hour: "3px"
-  starter: "30px"
+  surface: "14px"
+  recommendation: "12px"
+  field: "7px"
+  day: "6px"
+  hour: "4px"
+  starter: "6px"
 spacing:
   compact: "8px"
   regular: "16px"
@@ -138,7 +139,7 @@ The regular serif has a broad, open editorial character. The sans-serif carries 
 ### Hierarchy
 
 - **Display:** the frontmatter fluid scale, reduced to (43px) on phones.
-- **Headline:** method headings, reduced to (36px) on phones.
+- **Headline:** method headings, reduced to (32px) on phones.
 - **Title:** place headings; control and forecast headings use nearby steps (24–27px).
 - **Recommendation time:** regular serif (36px), with responsive steps (29–30px).
 - **Body:** introductory copy uses the frontmatter role; explanatory copy uses (14px) with generous line spacing, and recommendation copy uses (13px).
@@ -162,7 +163,7 @@ The system uses no shadows. Tonal layering distinguishes paper, preferences, for
 
 ## Shapes
 
-Work surfaces and recommendations use gently curved corners from the surface radius. Fields and notices use the smaller field radius; day controls and hourly bars use tighter corners. Starter-place controls are rounded pills.
+Work surfaces and recommendations use gently curved corners from the surface radius. Fields and notices use the smaller field radius; day controls and hourly bars use tighter corners. Starter-place controls use compact 6px rounded rectangles.
 
 Icons are authored inline SVG with a consistent fine stroke, current text color and no fill. The sun and orbit are exact geometry, separate from the functional icon system. Decorative geometry is hidden from assistive technology.
 
@@ -186,7 +187,7 @@ Chosen places appear as quiet text rows with a lower divider and a labeled SVG r
 
 ### Cards / Containers
 
-The planner is a single bordered work surface. Its green preference region and white forecast region form one shared container. The recommendation uses a solid forest surface with light text and no shadow.
+The planner is one bordered work surface. Setup and results share a white ground, divided by a thin rule. The recommendation uses a solid forest surface with light text, 12px corners and no shadow.
 
 ### Navigation
 
