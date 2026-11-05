@@ -1,19 +1,19 @@
 # Validation record
 
-Run date: 2026-11-05. Node 24.17.0 on Windows. No default branch or remote git history is available in the supplied folder.
+Run date: 2026-11-05. Node 24.17.0 on Windows. The project now has a public repository, a backed-up baseline and a feature-branch workflow. No original pre-rebuild history was supplied.
 
 | Check | Evidence | Outcome |
 | --- | --- | --- |
 | Core rules | `npm test` | 6 passing tests |
 | Complete deterministic ranking | `npm run evaluate` | 3,000/3,000 rankings agree; zero invalid recommendations |
-| Main browser flow | `npm run test:e2e` | 3 passing tests including service failure and sample exploration |
+| Main browser flow | `npm run test:e2e` | 5 passing tests including failure states, day changes, optional preferences and bounded two-city comparison |
 | Accessibility and responsive layout | axe in browser suite | Zero automated A/AA violations and no page overflow at 390, 820, 1440px |
 | Real data flow | `node scripts/browser-live.mjs` | Search, select Bengaluru, fetch real forecast, recommend; zero browser errors |
-| Local mobile Lighthouse | `node scripts/lighthouse.mjs` | 99 performance; 100 accessibility; 100 best practices; 100 SEO |
+| Local mobile Lighthouse | `node scripts/lighthouse.mjs` | 100 performance; 100 accessibility; 100 best practices; 100 SEO |
 | Package audit | `npm audit` | Zero known vulnerabilities in complete dependency tree |
 | Static build | `npm run build` | Only web source copied to dist |
 | Attribution source scan | `node scripts/scan-source.mjs` | Zero hits |
-| Remote CI, PR, production smoke | Requires git remote and valid authentication | Not run |
+| Remote CI, PR, production smoke | [Repository checks](https://github.com/brej-29/outside-weather/actions/workflows/verify-deploy.yml) | See the latest main-branch run for deployed verification |
 
 Browser tooling: install Chromium with Playwright; set PLAYWRIGHT_BROWSERS_PATH when its cache must be inside the writable workspace. Live check accepts APP_URL (default localhost:4174). Lighthouse accepts APP_URL, CHROME_PATH and LIGHTHOUSE_PROFILE; point the latter to a writable scratch directory. Smoke accepts LIVE_URL. The dev server accepts PORT (default 4173).
 
@@ -22,3 +22,5 @@ Negative findings and fixes: the original Python launcher could not spawn; no or
 The design detector reported contextual warnings for cream ground, serif display and a system control font. Independent review judged the outdoor-journal direction coherent; these are design judgments, not waived accessibility findings. Native controls and authored SVG provide the working interface.
 
 Not established: real-world forecast calibration, demand, comparative decision speed, assistive-technology usability, production performance, global quota enforcement or uptime. The proposed user study in WHY.md remains future work. No historical secret exposure or attribution in previous commits can be established without the missing history.
+
+The usability revision replaces the side-by-side sidebar with a compact city/duration/action row and collapses detailed preferences. It uses 12-hour outing times and recalculates the recommendation for the selected day. Initial production browser checks exposed a root-path assumption; tests now navigate relative to the repository's Pages path. The root README includes a 148 KB sample-mode GIF; `npm run demo` records it from the actual interface with the dev server running.

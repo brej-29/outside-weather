@@ -1,18 +1,13 @@
 {
-  "checkedAt": "2026-11-05T05:49:37.627Z",
+  "checkedAt": "2026-11-05T06:20:30.671Z",
   "environment": "Local development server, mobile simulated throttling, single run",
   "scores": {
-    "performance": 99,
+    "performance": 100,
     "accessibility": 100,
     "best-practices": 100,
     "seo": 100
   },
   "failedAudits": [
-    {
-      "id": "max-potential-fid",
-      "title": "Max Potential First Input Delay",
-      "score": 0.44
-    },
     {
       "id": "bf-cache",
       "title": "Page prevented back/forward cache restoration",

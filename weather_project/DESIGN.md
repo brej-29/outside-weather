@@ -1,6 +1,6 @@
 ---
 name: Outside
-description: Quiet outdoor-journal typography and clear hourly weather evidence.
+description: A compact outing planner with progressive weather preferences and clear hourly evidence.
 colors:
   paper: "#f3f1e9"
   ink: "#263e33"
@@ -21,13 +21,13 @@ colors:
 typography:
   display:
     fontFamily: "Outside, Georgia, serif"
-    fontSize: "clamp(64px, 7.3vw, 100px)"
+    fontSize: "clamp(44px, 5.4vw, 68px)"
     fontWeight: 400
     lineHeight: 0.94
     letterSpacing: "-0.035em"
   headline:
     fontFamily: "Outside, Georgia, serif"
-    fontSize: "42px"
+    fontSize: "36px"
     fontWeight: 400
     lineHeight: 1.1
   title:
@@ -37,18 +37,19 @@ typography:
     letterSpacing: "-0.02em"
   body:
     fontFamily: "Arial, Helvetica, sans-serif"
-    fontSize: "17px"
+    fontSize: "16px"
     lineHeight: 1.65
   label:
     fontFamily: "Arial, Helvetica, sans-serif"
-    fontSize: "12px"
+    fontSize: "13px"
     fontWeight: 600
 rounded:
-  surface: "12px"
-  field: "6px"
-  day: "5px"
-  hour: "3px"
-  starter: "30px"
+  surface: "14px"
+  recommendation: "12px"
+  field: "7px"
+  day: "6px"
+  hour: "4px"
+  starter: "6px"
 spacing:
   compact: "8px"
   regular: "16px"
@@ -137,8 +138,8 @@ The regular serif has a broad, open editorial character. The sans-serif carries 
 
 ### Hierarchy
 
-- **Display:** the frontmatter fluid scale, reduced to (60px) on phones.
-- **Headline:** method headings, reduced to (36px) on phones.
+- **Display:** the frontmatter fluid scale, reduced to (43px) on phones.
+- **Headline:** method headings, reduced to (32px) on phones.
 - **Title:** place headings; control and forecast headings use nearby steps (24–27px).
 - **Recommendation time:** regular serif (36px), with responsive steps (29–30px).
 - **Body:** introductory copy uses the frontmatter role; explanatory copy uses (14px) with generous line spacing, and recommendation copy uses (13px).
@@ -148,13 +149,11 @@ The regular serif has a broad, open editorial character. The sans-serif carries 
 
 ## Layout
 
-The page is centered within a maximum width (1440px), with horizontal margins of approximately (5%). Large headings sit in open space; controls and data form tighter groups.
+The page is centered within 1240px. A compact editorial introduction leads into a single full-width planner. City, duration and the primary Find my window action form the first row, in that reading order. On phones these stack in the same order.
 
-The wide planner pairs a fixed preference column (290px) with a flexible forecast column. At the intermediate breakpoint (1000px), the preference column becomes (250px) and panel padding tightens. At the phone breakpoint (700px), preferences precede results in a single column; rain and wind controls share a row.
+Weather preferences are a collapsed native disclosure, with the active limits summarized alongside its label. This keeps the first task visible while preserving access to rain, wind and temperature controls. Results follow directly below the setup, with date, 12-hour time and continuous duration emphasized. Selecting another day updates its recommendation.
 
-Panel padding is generally (24–30px). Phone forecast padding tightens to (24px 18px). Explanatory content changes from two columns to a vertical sequence. The decorative orbit is hidden on phones so the headline remains clear.
-
-Hourly evidence has its own horizontal scroll area with a minimum grid width (480px), reduced to (470px) on phones. A visible instruction accompanies the narrower layouts. Tables may scroll within their own bounded region; page-level horizontal overflow is avoided.
+At 900px the preference grid uses two columns and the scroll instruction appears. At 600px controls stack, the decorative sun disappears and the forecast metrics share a compact row. Main padding is 26-30px on desktop and 18-22px on phones. Hourly evidence scrolls inside its own region with a minimum width of 550px.
 
 ## Elevation & Depth
 
@@ -164,7 +163,7 @@ The system uses no shadows. Tonal layering distinguishes paper, preferences, for
 
 ## Shapes
 
-Work surfaces and recommendations use gently curved corners from the surface radius. Fields and notices use the smaller field radius; day controls and hourly bars use tighter corners. Starter-place controls are rounded pills.
+Work surfaces and recommendations use gently curved corners from the surface radius. Fields and notices use the smaller field radius; day controls and hourly bars use tighter corners. Starter-place controls use compact 6px rounded rectangles.
 
 Icons are authored inline SVG with a consistent fine stroke, current text color and no fill. The sun and orbit are exact geometry, separate from the functional icon system. Decorative geometry is hidden from assistive technology.
 
@@ -188,7 +187,7 @@ Chosen places appear as quiet text rows with a lower divider and a labeled SVG r
 
 ### Cards / Containers
 
-The planner is a single bordered work surface. Its green preference region and white forecast region form one shared container. The recommendation uses a solid forest surface with light text and no shadow.
+The planner is one bordered work surface. Setup and results share a white ground, divided by a thin rule. The recommendation uses a solid forest surface with light text, 12px corners and no shadow.
 
 ### Navigation
 

@@ -9,11 +9,14 @@
     "test": "node --test tests/*.test.mjs",
     "evaluate": "node scripts/evaluate.mjs",
     "test:e2e": "playwright test",
-    "smoke": "node scripts/smoke.mjs"
+    "smoke": "node scripts/smoke.mjs",
+    "demo": "node scripts/demo.mjs"
   },
   "devDependencies": {
     "@axe-core/playwright": "4.11.0",
     "@playwright/test": "1.64.1",
-    "lighthouse": "13.5.0"
+    "gifenc": "1.0.3",
+    "lighthouse": "13.5.0",
+    "pngjs": "7.0.0"
   }
 }
